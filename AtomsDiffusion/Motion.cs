@@ -373,6 +373,7 @@ namespace AtomsDiffusion
             for (int a = 0; a < this.StructNumAtoms; a++)
             {
                 Vector coord = this.Struct[a].Coordinate + new Vector(rand.Next(-1, 1) * shift, rand.Next(-1, 1) * shift, rand.Next(-1, 1) * shift);
+                coord = Vector.Periodic(coord, L);
                 this.Struct[a].SetCoordinate(coord, L);
             }
         }

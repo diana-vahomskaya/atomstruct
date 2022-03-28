@@ -84,6 +84,24 @@ namespace AtomsDiffusion
             return Math.Sqrt(Math.Pow(vector2.x - vector1.x, 2) + Math.Pow(vector2.y - vector1.y, 2) + Math.Pow(vector2.z - vector1.z, 2));
         }
 
+        public static Vector Periodic (Vector vector, double L)
+        {
+            double x = 0.0 , y = 0.0, z=0.0;
+
+            if(vector.x < 0) x = vector.x + L;
+            else if(vector.x > L * vector.x) x = vector.x - L;
+            else x = vector.x;
+
+            if (vector.y < 0) y = vector.y + L;
+            else if (vector.y > L * vector.y) y = vector.y - L;
+            else y = vector.y;
+
+            if (vector.z < 0) z = vector.z + L;
+            else if (vector.z > L * vector.z) z = vector.z - L;
+            else z = vector.z;
+
+            return new Vector (x, y, z);
+        }
         /// <summary>
         /// Вычисление расстояния между атомами с учётом периодических граничных условий.
         /// </summary>

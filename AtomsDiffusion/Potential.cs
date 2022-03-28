@@ -117,20 +117,19 @@ namespace AtomsDiffusion
                 if (x == true)
                 {
                     delta = dxyz(sel.Coordinate.x, sel.Neighbours[j].Coordinate.x);
-                    force = Force_FuncCutOff(potentialIJ, Rijk, delta);
+                    force += Force_FuncCutOff(potentialIJ, Rijk, delta);
                 }
                 else if( y == true)
                 {
                     delta = dxyz(sel.Coordinate.y, sel.Neighbours[j].Coordinate.y);
-                    force = Force_FuncCutOff(potentialIJ, Rijk, delta);
+                    force += Force_FuncCutOff(potentialIJ, Rijk, delta);
                 }
                 else if( z == true)
                 {
                     delta = dxyz(sel.Coordinate.z, sel.Neighbours[j].Coordinate.z);
-                    force = Force_FuncCutOff(potentialIJ, Rijk, delta);
+                    force += Force_FuncCutOff(potentialIJ, Rijk, delta);
                 }
 
-                force += force;
             }
             return force;
         }
